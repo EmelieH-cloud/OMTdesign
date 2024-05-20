@@ -1,0 +1,135 @@
+/* Grundinställningar för body */
+body, html {
+    margin: 0;
+    /* Ta bort standardmarginalen för sidan */
+    font-family: 'Playfair Display', serif;
+}
+
+.main-container {
+    bordeR: 2px solid black;
+    width: 95vw;
+    margin: 0 auto;
+    height: 100vh;  
+}
+
+h1 {
+    /* Lägger till en mindre vertikal marginal mellan h1-elementen */
+    font-size: 4em;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        /* Starta med noll opacitet */
+    }
+
+    100% {
+        opacity: 1;
+        /* Öka opaciteten till fullständig synlighet */
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 1s;
+}
+
+
+
+.More
+{
+    color: black;
+    font-size: 4rem;
+    font-weight: 100;
+    left: 28%; 
+    position: absolute;
+    top: 19%; 
+    
+}
+
+ .fade-out {
+     animation: fadeOut 1s forwards;
+ }
+
+ @keyframes fadeOut {
+     to {
+         opacity: 0;
+     }
+ }
+
+ .fade-in {
+     animation: fadeIn 1s forwards;
+ }
+
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+     }
+
+     to {
+         opacity: 1;
+     }
+ }
+
+.One
+{
+    color: black;
+    position: absolute; 
+    font-size: 4rem; 
+    top: 12%;  
+    left: 8%; 
+    font-weight: 100;
+}
+
+
+.Date {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Gör ordet "date" absolut positionerat */
+    top: 52%;
+    left: 35%; 
+    font-weight: lighter; 
+    /* Placera ordet vertikalt mitt på containern */
+    color: grey;
+    
+    font-size: 4.5em;
+    font-style: italic;
+}
+
+
+
+.responsive-image {
+    max-width: 100%;
+    /* Sätter maximal bredd till 100% av parentelementet */
+    height: auto;
+    /* Behåller bildens proportioner */
+    top: 30%; 
+    position: absolute; 
+    z-index: -1;
+
+}
+
+/* Media query för skärmar bredare än 768px */
+@media (min-width: 768px) {
+    .main-container {
+        max-width: 768px;
+        /* Sätter maximal bredd till 768px */
+    }
+
+    .responsive-image {
+        max-width: 80%;
+        /* Sätter maximal bredd till 80% av parentelementet */
+    }
+}
+
+/* Media query för skärmar bredare än 1024px */
+@media (min-width: 1024px) {
+    .main-container {
+        max-width: 1024px;
+        /* Sätter maximal bredd till 1024px */
+    }
+
+    .responsive-image {
+        max-width: 60%;
+        /* Sätter maximal bredd till 60% av parentelementet */
+    }
+}

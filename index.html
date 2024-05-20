@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main-container fadeIn">
+        <h1 class="One animate__animated animate__fadeInRight">One</h1>
+        <h1 class="More animate__animated animate__fadeInRight animate__delay-1s">more</h2>
+            <h1 class="Date animate__animated animate__fadeInRight animate__delay-2s animate__slow">date?</h2>
+                
+                        <div id="image-container" class="image-container">
+                            <img src="./wineee.png" alt="text" class="responsive-image visible" />
+                        </div>
+    </div>
+
+    <script>
+        /*
+        changeImage funktionen skapar en ny bild och lägger den ovanpå den nuvarande.
+requestAnimationFrame används för att säkerställa att visible klassen läggs till efter
+ att den nya bilden har lagts till DOM.
+När den nya bilden har blivit synlig (visible), tas den gamla bilden bort efter en
+ sekund (matchande transition-duration).
+        
+        */
+         const imagePaths = ["./wineee.png", "./andra.png", "./tredje.png", "./fjärde.png"];
+            let currentIndex = 0;
+
+            function changeImage() {
+                const imageContainer = document.getElementById('image-container');
+                const oldImage = imageContainer.querySelector('.visible');
+
+                const newImage = document.createElement('img');
+                newImage.src = imagePaths[(currentIndex + 1) % imagePaths.length];
+                newImage.alt = "text";
+                newImage.className = "responsive-image";
+
+                newImage.addEventListener('load', () => {
+                    imageContainer.appendChild(newImage);
+                    requestAnimationFrame(() => {
+                        newImage.classList.add('visible');
+                        oldImage.classList.remove('visible');
+
+                        setTimeout(() => {
+                            imageContainer.removeChild(oldImage);
+                        }, 1000); // Matcha med transition-duration
+                    });
+                });
+
+                currentIndex = (currentIndex + 1) % imagePaths.length;
+            }
+
+            setInterval(changeImage, 5000);
+    </script>
+</body>
+
+</html>
